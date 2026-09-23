@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://pql31d380af3"]
+
+[ext_resource type="Script" uid="uid://c2g6uq7mh2ta4" path="res://Scripts/player.gd" id="1_v0iea"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ffe4x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_aq5xm"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v0iea"]
+viewport_path = NodePath("Head/Camera3D/Phone_Pivot/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cvnsp"]
+viewport_path = NodePath("Head/Camera3D/Phone_Pivot/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xohw1"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_v0iea")
+emission_enabled = true
+emission_energy_multiplier = 2.0
+emission_texture = SubResource("ViewportTexture_cvnsp")
+
+[node name="Player" type="CharacterBody3D" unique_id=96539248]
+script = ExtResource("1_v0iea")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1897390460]
+shape = SubResource("CapsuleShape3D_ffe4x")
+
+[node name="Head" type="Node3D" parent="." unique_id=1250773034]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=223262745]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=2108088592]
+
+[node name="Phone_Pivot" type="Node3D" parent="Head/Camera3D" unique_id=1381461199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3467736, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D/Phone_Pivot" unique_id=1169973482]
+mesh = SubResource("BoxMesh_aq5xm")
+surface_material_override/0 = SubResource("StandardMaterial3D_xohw1")
+
+[node name="SubViewport" type="SubViewport" parent="Head/Camera3D/Phone_Pivot" unique_id=647309537]
+size = Vector2i(512, 1024)
+
+[node name="Control" type="Control" parent="Head/Camera3D/Phone_Pivot/SubViewport" unique_id=1894634504]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Head/Camera3D/Phone_Pivot/SubViewport/Control" unique_id=1328781238]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Head/Camera3D/Phone_Pivot/SubViewport/Control" unique_id=1078989397]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Searching for signal..."

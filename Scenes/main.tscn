@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://bg25gbm4ke4q7"]
 
+[ext_resource type="PackedScene" uid="uid://dlmymnuocm52r" path="res://Scenes/colon_alley_section.tscn" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://pql31d380af3" path="res://Scenes/player.tscn" id="2_8gbba"]
+
+[sub_resource type="Environment" id="Environment_ffe4x"]
+background_mode = 1
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.25197792, 0.22498924, 0.2841267, 1)
+
 [node name="Main" type="Node3D" unique_id=1799065962]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1933917735]
+environment = SubResource("Environment_ffe4x")
+
+[node name="Colon Alley Section" parent="." unique_id=1695165552 instance=ExtResource("1_bo1nx")]
+
+[node name="Player" parent="." unique_id=96539248 instance=ExtResource("2_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86346436, 0)
