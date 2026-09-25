@@ -2,19 +2,53 @@
 
 [ext_resource type="PackedScene" uid="uid://dlmymnuocm52r" path="res://Scenes/colon_alley_section.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://pql31d380af3" path="res://Scenes/player.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bvbhi4qfdktc6" path="res://Scenes/door_system.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://dasfhk5s3p6jw" path="res://Scripts/fog_volume.gd" id="4_jjvhh"]
 
 [sub_resource type="Environment" id="Environment_ffe4x"]
 background_mode = 1
 sdfgi_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.18840972, 0.20823225, 0.23907608, 1)
+fog_density = 0.05
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.25197792, 0.22498924, 0.2841267, 1)
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(0.2509804, 0.22352941, 0.21176471, 1)
+volumetric_fog_anisotropy = 0.4
+volumetric_fog_length = 90.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jjvhh"]
+noise_type = 3
+frequency = 0.05
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_8gbba"]
+noise = SubResource("FastNoiseLite_jjvhh")
+seamless = true
+invert = true
+
+[sub_resource type="FogMaterial" id="FogMaterial_ffe4x"]
+albedo = Color(0.12156863, 0.12156863, 0.12156863, 1)
+height_falloff = 2.0
+edge_fade = 0.2
+density_texture = SubResource("NoiseTexture3D_8gbba")
 
 [node name="Main" type="Node3D" unique_id=1799065962]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1933917735]
 environment = SubResource("Environment_ffe4x")
 
-[node name="Colon Alley Section" parent="." unique_id=1695165552 instance=ExtResource("1_bo1nx")]
+[node name="Alley_1" parent="." unique_id=1695165552 instance=ExtResource("1_bo1nx")]
 
-[node name="Player" parent="." unique_id=96539248 instance=ExtResource("2_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86346436, 0)
+[node name="Player" parent="." unique_id=96539248 node_paths=PackedStringArray("ground_mist") instance=ExtResource("2_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3231201, 0)
+ground_mist = NodePath("../FogVolume")
+
+[node name="Door_1" parent="." unique_id=566844247 instance=ExtResource("3_8gbba")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.5, -7)
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=793926944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+size = Vector3(10, 6.5, 20)
+material = SubResource("FogMaterial_ffe4x")
+script = ExtResource("4_jjvhh")

@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://dlmymnuocm52r"]
 
+[ext_resource type="Script" uid="uid://c50rv1o4y7flq" path="res://Scripts/wall_light.gd" id="1_1w0no"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_ffe4x"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_v1ult"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_aq5xm"]
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1w0no"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xmhdn"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [sub_resource type="Curve3D" id="Curve3D_v1ult"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 2.8271022, -0.14545679, -0.7257223, 0, 0, 0, 0, 0, 0, -3.6514668, -3.3848991, -0.98730946, 0, 0, 0, 0, 0, 0, 6.812783, -6.9158916, -5.2856264, 0, 0, 0, 0, 0, 0, -4.2265472, -11.029983, -4.974039),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.659045, 5.267325, 1.7522354, 0, 0, 0, 0, 0, 0, -3.3793101, 4.818478, 9.808542, 0, 0, 0, 0, 0, 0, -0.32416248, 0.08101201, 4.446881),
+"tilts": PackedFloat32Array(0, 0, 0)
 }
-point_count = 4
+point_count = 3
 
 [node name="Colon Alley Section" type="Node3D" unique_id=1695165552]
 
@@ -17,25 +28,39 @@ point_count = 4
 transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("BoxMesh_ffe4x")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=1180762909]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=967413085]
+shape = SubResource("ConcavePolygonShape3D_v1ult")
+
 [node name="Wall1" type="MeshInstance3D" parent="." unique_id=1828223922]
 transform = Transform3D(-0.7581919, 0, 0.9971216, 0, 5, 0, -9.971216, 0, -0.07581919, 5.111582, 2.3841076, 4.6159344)
 mesh = SubResource("BoxMesh_aq5xm")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall1" unique_id=1663233593]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall1/StaticBody3D" unique_id=1734117355]
+shape = SubResource("ConcavePolygonShape3D_1w0no")
 
 [node name="Wall2" type="MeshInstance3D" parent="." unique_id=1105297518]
 transform = Transform3D(9.999999, 0, 0.00046505034, 0, 5.0000005, 0, -0.004650295, 0, 1, 0.21685791, 2.3841076, 9.706672)
 mesh = SubResource("BoxMesh_aq5xm")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="Wall2" unique_id=128815751]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2/StaticBody3D" unique_id=262703711]
+shape = SubResource("ConcavePolygonShape3D_xmhdn")
+
 [node name="Path3D" type="Path3D" parent="." unique_id=291585347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91397667, 4.793788)
 curve = SubResource("Curve3D_v1ult")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="." unique_id=1293271707]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.498394, -7.234062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3991075, -7.234062)
 polygon = PackedVector2Array(-0.05, -0.05, 0.05, -0.05, 0.05, 0.05, -0.05, 0.05)
 mode = 2
 path_node = NodePath("../Path3D")
 path_interval_type = 0
-path_interval = 0.5
+path_interval = 0.1
 path_simplify_angle = 0.0
 path_rotation = 2
 path_rotation_accurate = false
@@ -43,3 +68,14 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
+
+[node name="Wall_Light" type="OmniLight3D" parent="." unique_id=45164036]
+transform = Transform3D(-0.07581918, 0, 0.9971216, 0, 1, 0, -0.9971216, 0, -0.07581918, 3.680787, 1.5961199, 3.9419475)
+light_color = Color(1, 1, 0.81960785, 1)
+light_energy = 0.5
+light_size = 1.5
+shadow_enabled = true
+omni_range = 3.337
+omni_attenuation = 0.663
+omni_shadow_mode = 0
+script = ExtResource("1_1w0no")

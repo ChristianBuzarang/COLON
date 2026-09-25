@@ -5,6 +5,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ffe4x"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_aq5xm"]
+size = Vector3(0.5, 0.5, 0.1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_v0iea"]
 viewport_path = NodePath("Head/Camera3D/Phone_Pivot/SubViewport")
@@ -20,7 +21,9 @@ emission_energy_multiplier = 2.0
 emission_texture = SubResource("ViewportTexture_cvnsp")
 
 [node name="Player" type="CharacterBody3D" unique_id=96539248]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_v0iea")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1897390460]
 shape = SubResource("CapsuleShape3D_ffe4x")
@@ -30,11 +33,13 @@ shape = SubResource("CapsuleShape3D_ffe4x")
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=223262745]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=2108088592]
+light_volumetric_fog_energy = 3.0
 
 [node name="Phone_Pivot" type="Node3D" parent="Head/Camera3D" unique_id=1381461199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3467736, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D/Phone_Pivot" unique_id=1169973482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9108797, -0.29426253, -0.9184434)
 mesh = SubResource("BoxMesh_aq5xm")
 surface_material_override/0 = SubResource("StandardMaterial3D_xohw1")
 
@@ -57,3 +62,6 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Searching for signal..."
+
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=1219500437]
+target_position = Vector3(0, 0.5, -8)
