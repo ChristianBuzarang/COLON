@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://pql31d380af3"]
 
 [ext_resource type="Script" uid="uid://c2g6uq7mh2ta4" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://csmqaqwsuromd" path="res://Scenes/character_visual.tscn" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://dyo2bsdu2tgv3" path="res://Scripts/face_ui.gd" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ffe4x"]
 
@@ -29,17 +31,22 @@ metadata/_edit_group_ = true
 shape = SubResource("CapsuleShape3D_ffe4x")
 
 [node name="Head" type="Node3D" parent="." unique_id=1250773034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89594316, -0.119999945)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=223262745]
+transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0)
+near = 0.4
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=2108088592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.28883028)
 light_volumetric_fog_energy = 3.0
+shadow_enabled = true
 
 [node name="Phone_Pivot" type="Node3D" parent="Head/Camera3D" unique_id=1381461199]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3467736, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8706322, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D/Phone_Pivot" unique_id=1169973482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9108797, -0.29426253, -0.9184434)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.59615254, -0.5205476, -0.91844344)
 mesh = SubResource("BoxMesh_aq5xm")
 surface_material_override/0 = SubResource("StandardMaterial3D_xohw1")
 
@@ -65,3 +72,20 @@ text = "Searching for signal..."
 
 [node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D" unique_id=1219500437]
 target_position = Vector3(0, 0.5, -8)
+
+[node name="character_visual" parent="." unique_id=14217808 instance=ExtResource("2_cvnsp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=33750233]
+
+[node name="FaceUI" type="TextureRect" parent="HUD" unique_id=2007322741]
+custom_minimum_size = Vector2(150, 150)
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 165.0
+offset_bottom = 165.0
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("3_6t5aa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/FaceUI" unique_id=219089497]
