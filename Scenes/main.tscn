@@ -41,14 +41,14 @@ environment = SubResource("Environment_ffe4x")
 [node name="Alley_1" parent="." unique_id=1695165552 instance=ExtResource("1_bo1nx")]
 
 [node name="Player" parent="." unique_id=96539248 node_paths=PackedStringArray("ground_mist") instance=ExtResource("2_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3231201, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3231201, -117.888214)
 ground_mist = NodePath("../FogVolume")
 
 [node name="Door_1" parent="." unique_id=566844247 instance=ExtResource("3_8gbba")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.5, -7)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.5, -100.62485)
 
 [node name="FogVolume" type="FogVolume" parent="." unique_id=793926944]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-size = Vector3(10, 6.5, 20)
+transform = Transform3D(-0.0020748798, 0, 0.99999785, 0, 1, 0, -0.99999785, 0, -0.0020748798, -0.91161346, 14.152336, 2.9082193)
+size = Vector3(796.15, 50, 598.15)
 material = SubResource("FogMaterial_ffe4x")
 script = ExtResource("4_jjvhh")
