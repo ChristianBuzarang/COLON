@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2g6uq7mh2ta4" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://csmqaqwsuromd" path="res://Scenes/character_visual.tscn" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://ome7couikng8" path="res://Scenes/camera_effects.gd" id="2_vgqql"]
 [ext_resource type="Script" uid="uid://dyo2bsdu2tgv3" path="res://Scripts/face_ui.gd" id="3_6t5aa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ffe4x"]
@@ -36,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89594316, -0.20534109)
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=223262745]
 transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0)
 near = 0.375
+script = ExtResource("2_vgqql")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=2108088592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.28883028)
