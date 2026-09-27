@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://duivh2vspjfls"]
+
+[ext_resource type="Script" uid="uid://g73dn0y4xsbu" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="PackedScene" uid="uid://i8px426sdrks" path="res://Scenes/red_zombie.tscn" id="2_1f0kj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ffe4x"]
+
+[node name="Enemy" type="CharacterBody3D" unique_id=665717197]
+script = ExtResource("1_1f0kj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1220861786]
+shape = SubResource("CapsuleShape3D_ffe4x")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=251835311]
+
+[node name="Red_Zombie" parent="Visuals" unique_id=413526336 instance=ExtResource("2_1f0kj")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, -0.8868827, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1679961125]
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=207006623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66614234, 0)
+target_position = Vector3(0, 0, 5)
+
+[node name="KillZone" type="Area3D" parent="." unique_id=194039158]

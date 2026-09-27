@@ -33,6 +33,9 @@ var is_interacting = false
 var sprint_speed = 5.0
 var walk_speed = 2.5
 
+# Volume of the Player's Movement
+var current_noise_level = 0.0
+
 var head_bone_idx
 
 
@@ -49,6 +52,19 @@ func _process(_delta):
 		
 		# Logic to increase panic (e.g., being near the "monster" or in a dead end)
 		# panic_level = move_toward(panic_level, 1.0, delta * 0.1)
+		
+		# Calculate noise level
+		var speed = Vector2(velocity.x, velocity.y).length()
+		if not is_on_floor():
+			current_noise_level = 0.0
+		elif speed > 40: # Sprinting
+			current_noise_level = 15.0
+		elif  speed > 0.1: # Walking
+			current_noise_level = 7.0
+		else: # Idle
+			current_noise_level = 0.0
+		
+		# Optional: If player is crouching, make it 2.0
 
 func _ready():
 	head_bone_idx = skeleton.find_bone("DEF-spine.006")

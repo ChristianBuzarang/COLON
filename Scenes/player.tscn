@@ -22,7 +22,7 @@ emission_enabled = true
 emission_energy_multiplier = 2.0
 emission_texture = SubResource("ViewportTexture_cvnsp")
 
-[node name="Player" type="CharacterBody3D" unique_id=96539248]
+[node name="Player" type="CharacterBody3D" unique_id=96539248 groups=["player"]]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_v0iea")
 metadata/_edit_group_ = true
@@ -31,11 +31,11 @@ metadata/_edit_group_ = true
 shape = SubResource("CapsuleShape3D_ffe4x")
 
 [node name="Head" type="Node3D" parent="." unique_id=1250773034]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89594316, -0.119999945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89594316, -0.20534109)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=223262745]
 transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0)
-near = 0.4
+near = 0.375
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=2108088592]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.28883028)
@@ -74,16 +74,20 @@ text = "Searching for signal..."
 target_position = Vector3(0, 0.5, -8)
 
 [node name="character_visual" parent="." unique_id=14217808 instance=ExtResource("2_cvnsp")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+transform = Transform3D(-0.9456649, 0, -0.32514295, 0, 1, 0, 0.32514295, 0, -0.9456649, 0, -1, 0)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=33750233]
 
 [node name="FaceUI" type="TextureRect" parent="HUD" unique_id=2007322741]
 custom_minimum_size = Vector2(150, 150)
-offset_left = 15.0
-offset_top = 15.0
-offset_right = 165.0
-offset_bottom = 165.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -168.0
+offset_right = 170.0
+offset_bottom = -18.0
+grow_vertical = 0
 expand_mode = 3
 stretch_mode = 5
 script = ExtResource("3_6t5aa")
