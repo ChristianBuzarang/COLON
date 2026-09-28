@@ -1,5 +1,66 @@
 [gd_scene format=3 uid="uid://i8px426sdrks"]
 
 [ext_resource type="PackedScene" uid="uid://v42vpg1lrpso" path="res://Sprites/Red Boss Zombi/Red.Boos,zombi.fbx" id="1_8wo4x"]
+[ext_resource type="Animation" uid="uid://bfcavphy10rsv" path="res://Sprites/Red Boss Zombi/Anim+Godot/Jump.res" id="2_yds5d"]
+[ext_resource type="Animation" uid="uid://cb88rcr4j80bm" path="res://Sprites/Red Boss Zombi/Anim+Godot/Mutant Punch.res" id="3_1ygrx"]
+[ext_resource type="Animation" uid="uid://ch7tbo6reoagm" path="res://Sprites/Red Boss Zombi/Anim+Godot/Mutant Run.res" id="4_n8iw2"]
+[ext_resource type="Animation" uid="uid://drqhmklcwyteo" path="res://Sprites/Red Boss Zombi/Anim+Godot/Mutant Swiping.res" id="5_wfqpr"]
+[ext_resource type="Animation" uid="uid://hhddhma7sm5g" path="res://Sprites/Red Boss Zombi/Anim+Godot/Mutant Walking.res" id="6_aqptq"]
+[ext_resource type="Animation" uid="uid://bgu4ub8txdtg4" path="res://Sprites/Red Boss Zombi/Anim+Godot/Standing Melee Attack 360 Low.res" id="7_mrit5"]
+[ext_resource type="Animation" uid="uid://bh0jgqrepiugb" path="res://Sprites/Red Boss Zombi/Anim+Godot/Standing Melee Attack Downward.res" id="8_52wge"]
+[ext_resource type="Animation" uid="uid://dknctcklerf5r" path="res://Sprites/Red Boss Zombi/Anim+Godot/Standing Melee Combo Attack Ver. 2.res" id="9_ecisy"]
+[ext_resource type="Animation" uid="uid://bmby74frhbmhq" path="res://Sprites/Red Boss Zombi/Anim+Godot/Standing Taunt Battlecry.res" id="10_bo2pd"]
+[ext_resource type="Animation" uid="uid://de7wsiy0fsua0" path="res://Sprites/Red Boss Zombi/Anim+Godot/Unarmed Walk Forward.res" id="11_32uk1"]
+[ext_resource type="Animation" uid="uid://d2fotyj2t32st" path="res://Sprites/Red Boss Zombi/Anim+Godot/Zombie Attack.res" id="12_tlj81"]
+[ext_resource type="Animation" uid="uid://jal74b83hvl1" path="res://Sprites/Red Boss Zombi/Anim+Godot/Zombie Biting.res" id="13_8noh1"]
+[ext_resource type="Animation" uid="uid://b6lt6blm8252y" path="res://Sprites/Red Boss Zombi/Anim+Godot/Zombie Biting (1).res" id="14_i4xqe"]
+[ext_resource type="Animation" uid="uid://ubmfh8x2gv0v" path="res://Sprites/Red Boss Zombi/Anim+Godot/Zombie Death.res" id="15_pm87o"]
+[ext_resource type="Animation" uid="uid://bn6qxq62u5y63" path="res://Sprites/Red Boss Zombi/Anim+Godot/Zombie Death1.res" id="16_u2ff6"]
+[ext_resource type="Animation" uid="uid://c2fe3rbubnusn" path="res://Sprites/Red Boss Zombi/Anim+Godot/Zombie Idle.res" id="17_gb4pv"]
+[ext_resource type="Animation" uid="uid://b1hrfpwir8sqn" path="res://Sprites/Red Boss Zombi/Anim+Godot/Zombie Kicking.res" id="18_qoigs"]
+[ext_resource type="Animation" uid="uid://bbdhfhcqlvk38" path="res://Sprites/Red Boss Zombi/Anim+Godot/idle.res" id="19_x31j3"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a3sba"]
+_data = {
+&"Jump": ExtResource("2_yds5d"),
+&"Mutant Punch": ExtResource("3_1ygrx"),
+&"Mutant Run": ExtResource("4_n8iw2"),
+&"Mutant Swiping": ExtResource("5_wfqpr"),
+&"Mutant Walking": ExtResource("6_aqptq"),
+&"Standing Melee Attack 360 Low": ExtResource("7_mrit5"),
+&"Standing Melee Attack Downward": ExtResource("8_52wge"),
+&"Standing Melee Combo Attack Ver. 2": ExtResource("9_ecisy"),
+&"Standing Taunt Battlecry": ExtResource("10_bo2pd"),
+&"Unarmed Walk Forward": ExtResource("11_32uk1"),
+&"Zombie Attack": ExtResource("12_tlj81"),
+&"Zombie Biting": ExtResource("13_8noh1"),
+&"Zombie Biting (1)": ExtResource("14_i4xqe"),
+&"Zombie Death": ExtResource("15_pm87o"),
+&"Zombie Death1": ExtResource("16_u2ff6"),
+&"Zombie Idle": ExtResource("17_gb4pv"),
+&"Zombie Kicking": ExtResource("18_qoigs"),
+&"idle": ExtResource("19_x31j3")
+}
 
 [node name="Red_Boos,zombi" unique_id=1050892300 instance=ExtResource("1_8wo4x")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(553902672) index="0" unique_id=1994008660]
+bones/0/position = Vector3(0.0003432077, -0.0054394975, 0.91855913)
+bones/0/rotation = Quaternion(0.8065747, -0.018369375, 0.0041888626, 0.59083194)
+bones/1/rotation = Quaternion(0.88189954, 0.036500152, -0.091344215, 0.46106115)
+bones/2/rotation = Quaternion(0.5965115, 0.06911194, -0.0043257787, 0.79961175)
+bones/3/rotation = Quaternion(-0.39347517, -0.045608588, 0.028535552, 0.9177597)
+bones/5/rotation = Quaternion(0.9518311, -0.036796506, 0.101546004, 0.28697047)
+bones/6/rotation = Quaternion(0.37010026, -0.07612624, -0.04878849, 0.9245811)
+bones/7/rotation = Quaternion(-0.65504205, 0.047813237, 0.06432594, 0.7513295)
+bones/11/rotation = Quaternion(0.023235094, 0.013416957, -0.0024014516, 0.9996371)
+bones/12/rotation = Quaternion(0.5693369, 0.56362396, -0.4447003, 0.40053114)
+bones/13/rotation = Quaternion(0.44619521, 0.46802568, 0.36290702, 0.6709399)
+bones/14/rotation = Quaternion(-0.09145131, 0.23931406, 0.08832592, 0.962582)
+bones/16/rotation = Quaternion(-0.61312896, 0.57490146, -0.3772063, -0.38894296)
+bones/17/rotation = Quaternion(0.29602832, -0.30629095, -0.452957, 0.78318775)
+bones/18/rotation = Quaternion(-0.18868275, -0.09791304, -0.12742335, 0.9688009)
+bones/21/rotation = Quaternion(0.4575284, -0.027828299, 0.008193573, 0.88872164)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=791247658]
+libraries/zombie_animations = SubResource("AnimationLibrary_a3sba")

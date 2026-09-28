@@ -36,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89594316, -0.20534109)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=223262745]
 transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0)
-near = 0.375
+near = 0.4
 script = ExtResource("2_vgqql")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D" unique_id=2108088592]

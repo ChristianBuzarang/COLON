@@ -2,8 +2,10 @@ extends CharacterBody3D
 
 enum State { STATIC, IDLE, SEARCH, CHASE }
 
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
 @export var current_state = State.STATIC
-@export var chase_speed = 3.0
+@export var chase_speed = 1.5
 @export var rotation_speed = 5.0
 @export var vision_range = 15.0
 @export var hearing_sensitivity = 1.0 # How good the hearing of enemy
@@ -11,12 +13,14 @@ enum State { STATIC, IDLE, SEARCH, CHASE }
 @onready var nav_agent = $NavigationAgent3D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var visuals = $Visuals
+@onready var anim_player = $Visuals/Red_Zombie/AnimationPlayer
 
 var last_sound_pos = Vector3.ZERO
 
 
 func _physics_process(delta: float) -> void:
 	if !player: return
+	if not is_on_floor(): velocity.y -= gravity * delta
 	
 	check_hearing()
 	
@@ -25,14 +29,17 @@ func _physics_process(delta: float) -> void:
 			# Only gaze at player
 			handle_gaze(delta)
 			check_for_panic()
+			anim_player.play("zombie_animations/idle")
 		
 		State.SEARCH:
 			# Move to where the sound was heard
 			nav_agent.target_position = last_sound_pos
 			move_to_target(chase_speed * 0.5) # Move slower while searching
+			anim_player.play("zombie_animations/Unarmed Walk Forward")
 			
 			if nav_agent.is_navigation_finished():
 				current_state = State.IDLE # Or go back to STATIC
+				anim_player.play("zombie_animations/idle")
 		
 		State.CHASE:
 			handle_gaze(delta)
@@ -40,6 +47,7 @@ func _physics_process(delta: float) -> void:
 			# Pathfinding Logic
 			nav_agent.target_position = player.global_position
 			move_to_target(chase_speed)
+			anim_player.play("zombie_animations/Mutant Run")
 
 func check_hearing():
 	var dist = global_position.distance_to(player.global_position)
