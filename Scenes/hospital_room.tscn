@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://yrxn5smst6ha"]
+
+[ext_resource type="PackedScene" uid="uid://bu6bgkqh8u73e" path="res://Sprites/Hospital_Room/Hospital_room.glb" id="1_nr5iy"]
+
+[node name="Hospital_room" unique_id=891308274 instance=ExtResource("1_nr5iy")]
