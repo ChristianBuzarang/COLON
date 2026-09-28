@@ -42,25 +42,72 @@ _data = {
 &"idle": ExtResource("19_x31j3")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yds5d"]
+animation = &"zombie_animations/idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ygrx"]
+animation = &"zombie_animations/Unarmed Walk Forward"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n8iw2"]
+animation = &"zombie_animations/Mutant Run"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wfqpr"]
+min_space = 0.0
+max_space = 2.0
+blend_point_0/node = SubResource("AnimationNodeAnimation_yds5d")
+blend_point_0/pos = 0.0
+blend_point_0/name = &"idle"
+blend_point_1/node = SubResource("AnimationNodeAnimation_1ygrx")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"walk"
+blend_point_2/node = SubResource("AnimationNodeAnimation_n8iw2")
+blend_point_2/pos = 2.0
+blend_point_2/name = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wfqpr"]
+animation = &"zombie_animations/Zombie Attack"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yds5d"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aqptq"]
+xfade_time = 0.2
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mrit5"]
+xfade_time = 0.2
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ffe4x"]
+states/Move/node = SubResource("AnimationNodeBlendSpace1D_wfqpr")
+states/Move/position = Vector2(250, 61.28)
+states/Start/position = Vector2(71.2, 60.8)
+states/attack/node = SubResource("AnimationNodeAnimation_wfqpr")
+states/attack/position = Vector2(415.6, 61.503998)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_yds5d"), "Move", "attack", SubResource("AnimationNodeStateMachineTransition_aqptq"), "attack", "Move", SubResource("AnimationNodeStateMachineTransition_mrit5")]
+
 [node name="Red_Boos,zombi" unique_id=1050892300 instance=ExtResource("1_8wo4x")]
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(553902672) index="0" unique_id=1994008660]
-bones/0/position = Vector3(0.0003432077, -0.0054394975, 0.91855913)
-bones/0/rotation = Quaternion(0.8065747, -0.018369375, 0.0041888626, 0.59083194)
-bones/1/rotation = Quaternion(0.88189954, 0.036500152, -0.091344215, 0.46106115)
-bones/2/rotation = Quaternion(0.5965115, 0.06911194, -0.0043257787, 0.79961175)
-bones/3/rotation = Quaternion(-0.39347517, -0.045608588, 0.028535552, 0.9177597)
-bones/5/rotation = Quaternion(0.9518311, -0.036796506, 0.101546004, 0.28697047)
-bones/6/rotation = Quaternion(0.37010026, -0.07612624, -0.04878849, 0.9245811)
-bones/7/rotation = Quaternion(-0.65504205, 0.047813237, 0.06432594, 0.7513295)
-bones/11/rotation = Quaternion(0.023235094, 0.013416957, -0.0024014516, 0.9996371)
-bones/12/rotation = Quaternion(0.5693369, 0.56362396, -0.4447003, 0.40053114)
-bones/13/rotation = Quaternion(0.44619521, 0.46802568, 0.36290702, 0.6709399)
-bones/14/rotation = Quaternion(-0.09145131, 0.23931406, 0.08832592, 0.962582)
-bones/16/rotation = Quaternion(-0.61312896, 0.57490146, -0.3772063, -0.38894296)
-bones/17/rotation = Quaternion(0.29602832, -0.30629095, -0.452957, 0.78318775)
-bones/18/rotation = Quaternion(-0.18868275, -0.09791304, -0.12742335, 0.9688009)
-bones/21/rotation = Quaternion(0.4575284, -0.027828299, 0.008193573, 0.88872164)
+bones/1/rotation = Quaternion(0.9902832, 0.060149964, -0.07366537, 0.10146216)
+bones/2/rotation = Quaternion(0.070454694, 0.01590944, 0.007238833, 0.99736184)
+bones/3/rotation = Quaternion(-0.49268228, -0.030347278, 0.018112766, 0.86949134)
+bones/5/rotation = Quaternion(0.9920868, -0.046158005, 0.059634726, 0.100383535)
+bones/6/rotation = Quaternion(0.070603274, -0.028451232, -0.019274527, 0.99691236)
+bones/7/rotation = Quaternion(-0.48155627, 0.03958474, 0.0005445093, 0.8755206)
+bones/11/rotation = Quaternion(-0.080815785, -0.0014179803, 0.0017863036, 0.99672645)
+bones/12/rotation = Quaternion(0.5270391, 0.58386636, -0.46275324, 0.408888)
+bones/13/rotation = Quaternion(0.46874672, 0.51928896, 0.25981733, 0.66566545)
+bones/14/rotation = Quaternion(-0.28897363, -0.117460616, 0.024924777, 0.9497768)
+bones/16/rotation = Quaternion(-0.5336449, 0.57783496, -0.44918352, -0.42374998)
+bones/17/rotation = Quaternion(0.46721804, -0.50590754, -0.289722, 0.6647)
+bones/18/rotation = Quaternion(-0.21265039, 0.105969384, 0.012056641, 0.97129035)
+bones/21/rotation = Quaternion(0.51876795, 0.0004482407, -0.006595668, 0.8548896)
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=791247658]
 libraries/zombie_animations = SubResource("AnimationLibrary_a3sba")
+autoplay = &"zombie_animations/idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=702225007]
+tree_root = SubResource("AnimationNodeStateMachine_ffe4x")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Move/blend_position = 0.0

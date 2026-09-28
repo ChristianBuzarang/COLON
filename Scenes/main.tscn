@@ -52,7 +52,7 @@ navigation_mesh = SubResource("NavigationMesh_ffe4x")
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.5, -100.62485)
 
 [node name="Player" parent="." unique_id=96539248 node_paths=PackedStringArray("ground_mist", "world_env") instance=ExtResource("2_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3231201, -117.888214)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3231201, -110.143456)
 ground_mist = NodePath("../FogVolume")
 world_env = NodePath("../WorldEnvironment")
 
@@ -63,5 +63,4 @@ material = SubResource("FogMaterial_ffe4x")
 script = ExtResource("4_jjvhh")
 
 [node name="Enemy" parent="." unique_id=665717197 instance=ExtResource("5_kry3j")]
-transform = Transform3D(-0.99908686, 0, -0.042728253, 0, 1, 0, 0.042728253, 0, -0.99908686, -0.29254627, 1.1373622, -110.909805)
-current_state = 3
+transform = Transform3D(1.0000001, 0, 0, 0, 1, 0, 0, 0, 1.0000001, -2.888085, 1.725487, -118.94591)

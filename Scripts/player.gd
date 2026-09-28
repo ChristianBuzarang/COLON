@@ -12,7 +12,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var flashlight = $Head/Camera3D/SpotLight3D
 @onready var interact_ray = $Head/Camera3D/RayCast3D
 @onready var skeleton = $character_visual/root_character_deform/Skeleton3D
-@onready var anim_player = $character_visual/AnimationPlayer
+@onready var anim_tree = $character_visual/AnimationTree
+@onready var anim_state = anim_tree.get("parameters/playback")
 
 const ANIM_IDLE = "iddle_001"
 const ANIM_WALK = "anim_walkwHD"
@@ -119,15 +120,19 @@ func _physics_process(delta):
 	pos.x = cos(t_bob * bob_freq / 2) * bob_amp
 	head.position = pos
 	
-	if not is_interacting:
-		update_animations()
+	update_animations()
 
 func _input(event):
 	if event.is_action_pressed("toggle_light"):
 		flashlight.visible = !flashlight.visible
 	
 	if event.is_action_pressed("interact"): 
-		play_interact_animation()
+		is_interacting = true
+		anim_state.travel("interact")
+		await get_tree().create_timer(0.6).timeout
+		#await anim_state.animation_finished
+		is_interacting = false
+		
 		if interact_ray.is_colliding():
 			var object = interact_ray.get_collider()
 			print("Raycast hit: ", object.name)
@@ -144,6 +149,22 @@ func _input(event):
 		else:
 			print("Raycast hit nothing.")
 
+func update_animations():
+	var speed = Vector2(velocity.x, velocity.z).length()
+	var blend_value = 0.0
+	
+	if speed > 4.0:
+		blend_value = 2.0 # Running
+	elif speed > 0.1: 
+		blend_value = 1.0 # Walking
+	else:
+		blend_value = 0.0 # Idle
+	
+	anim_tree.set("parameters/Move/blend_position", blend_value)
+	
+	if not is_interacting:
+		anim_state.travel("Move")
+
 func increase_panic(amount):
 	var env = world_env.environment
 	
@@ -157,30 +178,6 @@ func make_fog_rise(delta):
 	
 	var mat = ground_mist.material as FogMaterial
 	mat.height_falloff = lerp(mat.height_falloff, 0.0, delta)
-
-func update_animations():
-	var speed = Vector2(velocity.x, velocity.z).length()
-	
-	if not is_on_floor():
-		anim_player.play("jumpHD_001", 0.2)
-	elif speed > 0.1:
-		anim_player.play(ANIM_WALK, 0.3)
-		anim_player.speed_scale = speed / 3.0
-	else:
-		anim_player.play(ANIM_IDLE, 0.3)
-		anim_player.speed_scale = 1.0
-
-func play_interact_animation():
-	is_interacting = true
-	
-	# The parameters are: (Animation Name, Blend Time, Speed Scale)
-	# Speed Scale 0.5 = 50% speed (Half speed)
-	# Speed Scale 0.2 = 20% speed (Very slow and tense)
-	anim_player.play(ANIM_INTERACT, 0.2, 0.4)
-	await get_tree().create_timer(0.6).timeout
-	
-	await anim_player.animation_finished
-	is_interacting = false
 
 func update_panic_visuals():
 	if world_env == null: return # Skip if we can't find the fog, don't crash the game!
