@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c50rv1o4y7flq" path="res://Scripts/wall_light.gd" id="1_ojv86"]
 [ext_resource type="PackedScene" uid="uid://4r6jpjibxhgf" path="res://Scenes/tempo_buildings.tscn" id="2_mxn2s"]
 [ext_resource type="Script" uid="uid://bv0l67ba4r1nu" path="res://Scripts/location_trigger.gd" id="3_lor37"]
-[ext_resource type="PackedScene" uid="uid://pql31d380af3" path="res://Scenes/player.tscn" id="4_mxn2s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1w0no"]
 albedo_color = Color(0.3653389, 0.3653391, 0.3653389, 1)
@@ -372,5 +371,5 @@ script = ExtResource("3_lor37")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=374977659]
 shape = SubResource("BoxShape3D_c0ksi")
 
-[node name="Player" parent="." unique_id=96539248 instance=ExtResource("4_mxn2s")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0.093180776, 1.5810986, -116.48123)
+[node name="PlayerSpawn" type="Marker3D" parent="." unique_id=1876251100 groups=["player_spawn"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7253094, 0, -116.98269)

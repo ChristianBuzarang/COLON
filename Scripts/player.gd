@@ -39,7 +39,16 @@ var current_noise_level = 0.0
 
 var head_bone_idx
 
-
+func on_scene_entered() -> void:
+	var current_scene = get_tree().current_scene
+	if current_scene:
+		world_env = current_scene.get_node_or_null("WorldEnvironment") as WorldEnvironment
+		ground_mist = current_scene.get_node_or_null("GroundMist") as FogVolume
+	
+	# Reset local head shake offset on scene swap
+	if head:
+		head.position.x = 0.0
+		
 func _process(_delta):
 	# 2% chance per frame to flicker
 	if randf() > 0.98: flashlight.light_energy = randf_range(0.5, 1.5)
