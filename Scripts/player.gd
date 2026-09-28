@@ -5,8 +5,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #@export var speed = 2.5
 @export var mouse_sensitivity = 0.002
 @export var ground_mist: FogVolume
+@export var world_env: WorldEnvironment
 
-@onready var world_env = get_node("/root/Main/WorldEnvironment")
 @onready var head = $Head
 @onready var phone = $Head/Camera3D/Phone_Pivot
 @onready var flashlight = $Head/Camera3D/SpotLight3D
@@ -181,3 +181,9 @@ func play_interact_animation():
 	
 	await anim_player.animation_finished
 	is_interacting = false
+
+func update_panic_visuals():
+	if world_env == null: return # Skip if we can't find the fog, don't crash the game!
+	
+	# Your fog logic here...
+	world_env.environment.volumetric_fog_density = 0.1

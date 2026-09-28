@@ -51,9 +51,10 @@ navigation_mesh = SubResource("NavigationMesh_ffe4x")
 [node name="Door_1" parent="NavigationRegion3D" unique_id=566844247 instance=ExtResource("3_8gbba")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.5, -100.62485)
 
-[node name="Player" parent="." unique_id=96539248 node_paths=PackedStringArray("ground_mist") instance=ExtResource("2_8gbba")]
+[node name="Player" parent="." unique_id=96539248 node_paths=PackedStringArray("ground_mist", "world_env") instance=ExtResource("2_8gbba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3231201, -117.888214)
 ground_mist = NodePath("../FogVolume")
+world_env = NodePath("../WorldEnvironment")
 
 [node name="FogVolume" type="FogVolume" parent="." unique_id=793926944]
 transform = Transform3D(-0.0020748798, 0, 0.99999785, 0, 1, 0, -0.99999785, 0, -0.0020748798, -0.91161346, 14.152336, 2.9082193)
