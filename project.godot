@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 ScreenEffects="*uid://1wirwhqnaj2"
 SceneManager="*uid://d08rheliaoury"
 DialogueManager="*uid://d32r4aeavcer4"
+AudioManager="*uid://bdh6dehuqrr4a"
 
 [display]
 
