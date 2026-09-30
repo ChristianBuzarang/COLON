@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://6d6fn0t8pbhk"]
 
+[ext_resource type="Script" uid="uid://83k40xs71k3c" path="res://Scripts/colon_test_scene.gd" id="1_8uqu1"]
 [ext_resource type="Script" uid="uid://c50rv1o4y7flq" path="res://Scripts/wall_light.gd" id="1_ojv86"]
 [ext_resource type="PackedScene" uid="uid://4r6jpjibxhgf" path="res://Scenes/tempo_buildings.tscn" id="2_mxn2s"]
 [ext_resource type="Script" uid="uid://bv0l67ba4r1nu" path="res://Scripts/location_trigger.gd" id="3_lor37"]
 [ext_resource type="PackedScene" uid="uid://bvbhi4qfdktc6" path="res://Scenes/door_system.tscn" id="4_mxn2s"]
+[ext_resource type="Script" uid="uid://bq3hikix0yjt0" path="res://Scripts/colon_test_auto_dialog.gd" id="6_sagrn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1w0no"]
 albedo_color = Color(0.3653389, 0.3653391, 0.3653389, 1)
@@ -35,7 +37,11 @@ size = Vector3(10, 1, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_0v0xr"]
 size = Vector3(4.979004, 4.0444336, 4.111084)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nm0yd"]
+size = Vector3(10, 1, 10)
+
 [node name="Colon Alley Section" type="Node3D" unique_id=1695165552]
+script = ExtResource("1_8uqu1")
 
 [node name="Floor" type="MeshInstance3D" parent="." unique_id=1956559876]
 transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 20, 0, 0, 0)
@@ -388,3 +394,11 @@ metadata/_edit_group_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorArea" unique_id=1239776959]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_0v0xr")
+
+[node name="Area3D2" type="Area3D" parent="." unique_id=1818970888]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.067794, 0, -113.02527)
+script = ExtResource("6_sagrn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=493641491]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3365793, 0, -0.8400879)
+shape = SubResource("BoxShape3D_nm0yd")
